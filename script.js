@@ -10,6 +10,7 @@ primer caracter usuario 2do maquina
 20
 21
 */
+var score = [0, 0, 0];
 
 function usuario(eleUsuario) {
   //borrar todo lo rojo
@@ -49,12 +50,19 @@ function usuario(eleUsuario) {
       document.write("Error");
       break;
   }
-  console.log(eleccion);
   document.getElementById("respuesta").style.display = "";
+  showScore();
 }
+function showScore() {
+  document.getElementById("ganados").innerHTML = score[0].toString();
+  document.getElementById("empatados").innerHTML = score[1].toString();
+  document.getElementById("perdidos").innerHTML = score[2].toString();
+}
+
 function showEmpate(elemento) {
   document.getElementById("respuesta").innerHTML = `<h1>¡Empate!</h1>`;
   marcaRojo(elemento, elemento);
+  score[1]++;
 }
 function marcaRojo(elementoUsuario, elementoMaquina) {
   let itemu = document.getElementById(elementoUsuario);
@@ -67,20 +75,24 @@ function showGana(eleUsuario, eleMaquina) {
     "respuesta"
   ).innerHTML = `<h1 style='color:green'>¡Ganaste!</h1>`;
   marcaRojo(eleUsuario, eleMaquina);
+  score[0]++;
 }
 function showPierde(eleUsuario, eleMaquina) {
   document.getElementById(
     "respuesta"
   ).innerHTML = `<h1 style='color:red'>¡Perdiste!</h1>`;
   marcaRojo(eleUsuario, eleMaquina);
+  score[2]++;
 }
 function limpiaRespuesta() {
   document.getElementById("respuesta").style.display = "none";
   allWhite();
+  score.fill(0);
+  showScore();
 }
 function aleatorio(minimo, maximo) {
   var numero = Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
-  return numero;
+  return numero.toString();
 }
 function allWhite() {
   let items = document.getElementsByTagName("button");

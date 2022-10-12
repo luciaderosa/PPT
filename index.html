@@ -24,11 +24,11 @@
                   <i class="fa-regular fa-hand-back-fist fa-4x"></i></button>
             </div>
             <div class="col">
-               <button type="button" class="btn btn-success" id="Papel" onclick="usuario('1');" id="papel">
+               <button type="button" class="btn btn-success" id="Papel" onclick="usuario('1');">
                   <i class="fa-regular fa-hand fa-4x"></i></button>
             </div>
             <div class="col">
-               <button type="button" class="btn btn-success" id="Tijera" onclick="usuario('2');" id="tijera">
+               <button type="button" class="btn btn-success" id="Tijera" onclick="usuario('2');">
                   <i class="fa-regular fa-hand-scissors fa-4x"></i></button>
             </div>
 
@@ -50,10 +50,25 @@
 
          <div>
             <p>Piedra vence Tijera - Papel vence Piedra - Tijera vence Papel</p>
+            <table class="table align-middle fs-2">
+               <thead>
+                  <tr>
+                     <th scope="col">Ganados </th>
+                     <th scope="col">Empatados</th>
+                     <th scope="col">Perdidos </th>
+                  </tr>
+               </thead>
+               <tr>
+                  <td id="ganados" class="text-success fw-bold">0</td>
+                  <td id="empatados" class="fw-bold">0</td>
+                  <td id="perdidos" class="text-danger fw-bold">0</td>
+               </tr>
+               </tbody>
+            </table>
          </div>
 
          <h4 id="respuesta" style="display:none" onclick="limpiaRespuesta();"></h4>
-         <i class="fa-solid fa-circle-info"> Click sobre el resultado para borrar.</i>
+         <i class="fa-solid fa-circle-info"> Click sobre el resultado para una nueva serie.</i>
 
       </div>
    </div>
